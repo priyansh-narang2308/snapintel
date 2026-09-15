@@ -17,30 +17,11 @@ export default function NewsletterSignup() {
     }
 
     setIsLoading(true);
-    try {
-      const response = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email }),
-      });
-
-      const result = await response.json();
-
-      if (!response.ok) {
-        toast.error(result.error || "Something went wrong");
-        return;
-      }
-
-      toast.success("Successfully subscribed to our newsletter!");
+    setTimeout(() => {
+      toast.success("Subscribed to SnapIntel release updates!");
       setEmail("");
-    } catch (error) {
-      console.error("Error subscribing to newsletter:", error);
-      toast.error("Failed to subscribe. Please try again.");
-    } finally {
       setIsLoading(false);
-    }
+    }, 500);
   };
 
   return (

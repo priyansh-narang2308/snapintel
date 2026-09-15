@@ -3,11 +3,12 @@ import React from "react";
 const FeaturesHeader: React.FC = () => {
   return (
     <div className="flex flex-col lg:flex-row justify-between gap-8 lg:gap-12 py-12 sm:py-16 lg:py-20 xl:py-32 px-5">
-      <h3 className="text-white text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium max-w-full lg:max-w-[700px] leading-tight">
-        A market where creators rise - and your wallet doesn&apos;t get left behind.
+      <h3 className="text-white text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-medium max-w-full lg:max-w-175 leading-tight">
+        A market where creators rise - and your wallet doesn&apos;t get left
+        behind.
       </h3>
 
-      <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10 max-w-full lg:max-w-[600px]">
+      <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10 max-w-full lg:max-w-150">
         <p className="text-zinc-400 text-base sm:text-lg leading-relaxed">
           We&apos;re building a decentralized platform where creators issue
           royalty-linked blockchain tokens with built-in initial liquidity.

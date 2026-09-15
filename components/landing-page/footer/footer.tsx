@@ -43,7 +43,7 @@ const Footer = () => {
         <div className="h-[75%] sm:h-[78%] lg:h-[80%] xl:h-[82%] w-full pt-8 sm:pt-12 lg:pt-16 xl:pt-20 2xl:pt-24">
           <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 lg:gap-10 h-full">
             <h2 className="font-medium text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl text-center max-w-sm sm:max-w-2xl lg:max-w-3xl xl:max-w-4xl px-4 leading-tight">
-              Invest in creators before everyone else gets it.
+              See Anything. Research It Instantly with SnapIntel.
             </h2>
 
             <div className="flex flex-col gap-2 sm:gap-3 items-center">
