@@ -144,10 +144,6 @@ export default function SnapIntelAnalyzer() {
                 Live Multi-Engine Pipeline • SerpApi + OpenRouter
               </span>
             </div>
-            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-700 text-xs text-zinc-300">
-              <ShieldCheck className="w-3.5 h-3.5 text-orange-400" />
-              <span>Credit Guard: Smart Caching Active</span>
-            </div>
           </div>
 
           {/* Input Bar */}
