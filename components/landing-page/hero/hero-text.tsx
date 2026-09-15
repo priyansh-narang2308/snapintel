@@ -26,8 +26,7 @@ const HeroText = ({ text }: HeroTextProps) => {
         trigger: heroTextRef.current,
         start: "top 20%",
         end: "top -10%",
-        scrub: 2,
-        pin: true,
+        scrub: 1.5,
       },
     });
   });

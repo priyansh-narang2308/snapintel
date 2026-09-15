@@ -13,26 +13,26 @@ interface FeatureItem {
 
 const FEATURES_DATA: FeatureItem[] = [
   {
-    title: "Sustainable Creator Capital",
-    desc: "Creators raise upfront capital by issuing royalty-linked blockchain tokens, enabling long-term, transparent monetization without ads, sponsorship dependence, or equity dilution.",
+    title: "Google Lens Visual Discovery",
+    desc: "Instant computer-vision recognition. Pinpoint the exact model, SKU, or landmark from any uploaded image or camera snapshot with zero text required.",
     img: "/images/features/bitcoin.png",
     icon: "/images/features/earning.png",
   },
   {
-    title: "Participation in Creator Growth",
-    desc: "Supporters can acquire and hold creator-backed blockchain tokens that represent participation in a creator’s growth, with transparent pricing and on-chain settlement.",
+    title: "Multi-Store Price Arbitrage",
+    desc: "Google Shopping crawls real-time merchant inventories, finding the lowest available price, discount spreads, and delivery speeds across the web.",
     img: "/images/features/portfolio.png",
     icon: "/images/features/trading.png",
   },
   {
-    title: "Initial Royalty Offering (IRO)",
-    desc: "Creators launch royalty-backed blockchain tokens through a structured issuance process that defines valuation, supply, and release conditions before public access.",
+    title: "Web Sentiment & Defect Alerts",
+    desc: "Deep Google Search synthesis scans Reddit, community teardowns, and safety records to flag known batch flaws and upcoming revision cycles.",
     img: "/images/features/ipo.png",
     icon: "/images/features/rocket.png",
   },
   {
-    title: "Bootstrapped Liquidity → Orderbook Markets",
-    desc: "Early liquidity is provided through an automated bonding curve on-chain. Once maturity thresholds are met, tokens transition to an open orderbook-based market for price discovery.",
+    title: "Demand Velocity & AI Verdict",
+    desc: "Google Trends data merged with OpenRouter AI reasoning delivers a definitive Buy, Wait, or Avoid recommendation with grounded proof.",
     img: "/images/features/tbc.png",
     icon: "/images/features/curve.png",
   },

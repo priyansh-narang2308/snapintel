@@ -20,30 +20,24 @@ const FloatingLogo = ({
   alt,
   className,
   style,
-  animateY = 30,
-  animateX = 10,
-  rotate = 10,
+  animateY = 20,
+  animateX = 8,
+  rotate = 8,
   duration = 5,
-  initialShadow,
-  deepShadow,
 }: FloatingLogoProps) => {
   return (
     <motion.img
       src={src}
       alt={alt}
-      className={className}
+      className={`${className} filter drop-shadow-xl`}
       style={style}
       initial={{
         rotate: -rotate,
-        rotateX: 15,
-        rotateY: -10,
-        filter: initialShadow,
       }}
       animate={{
         y: [0, -animateY, 0],
         x: [0, animateX, 0],
-        rotate: [-rotate, -(rotate + 10), -rotate],
-        filter: [initialShadow!, deepShadow!, initialShadow!],
+        rotate: [-rotate, -rotate + 6, -rotate],
       }}
       transition={{ duration, repeat: Infinity, ease: "easeInOut" }}
     />

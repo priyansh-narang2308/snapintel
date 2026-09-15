@@ -5,25 +5,25 @@ import { motion } from "motion/react";
 
 const STEPS = [
   {
-    title: "Initial Royalty Offering (IRO)",
+    title: "1. Visual Entity Detection (Google Lens)",
     icon: "/images/howitworks/rocket.png",
     step_image: "/images/howitworks/step1.png",
     description:
-      "Creators begin by launching a royalty-backed blockchain token through a structured Initial Royalty Offering (IRO). Early participants acquire the first tokens at a predefined price. A portion of the proceeds is released to the creator as upfront capital, while the remainder is locked into a reserve that initializes on-chain liquidity.",
+      "Drop any image, camera photo, or screenshot. SnapIntel immediately dispatches the visual payload to SerpApi Google Lens, identifying the exact brand, SKU, product variation, and visual matches without typing a word.",
   },
   {
-    title: "Bonding Curve Liquidity Phase",
+    title: "2. Multi-Engine Parallel Sourcing",
     icon: "/images/howitworks/tbc.png",
     step_image: "/images/howitworks/step2.jpeg",
     description:
-      "After the IRO, the token enters a bonding-curve phase that provides automated, on-chain liquidity. Token prices adjust algorithmically based on supply and demand, with buys minting tokens and sells burning them. This phase ensures continuous liquidity without relying on external market makers.",
+      "Once identified, SnapIntel queries Google Shopping for live merchant pricing & discounts, Google Search for Reddit teardowns & defect warnings, and Google Trends for consumer demand trajectory.",
   },
   {
-    title: "Orderbook Market Transition",
+    title: "3. Grounded AI Buying Verdict",
     icon: "/images/howitworks/trading.png",
     step_image: "/images/howitworks/step3.jpeg",
     description:
-      "Once predefined maturity thresholds are reached, the token transitions from the bonding curve to an open orderbook market. At this stage, participants can trade freely with market-driven price discovery, while creators benefit from long-term participation tied to their ecosystem’s growth.",
+      "Free OpenRouter LLMs analyze the cross-engine evidence to produce an actionable verdict: BUY NOW, WAIT FOR SALE, or AVOID — with lowest verified store links and zero hallucinated facts.",
   },
 ];
 
@@ -43,13 +43,12 @@ const HowItWorks = () => {
       {/* LEFT SIDE */}
       <div className="w-full lg:w-[47%] p-6 sm:p-8 lg:p-12 flex flex-col gap-8 sm:gap-12 lg:gap-16 xl:gap-20">
         <h3 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl text-zinc-900 font-medium leading-tight">
-          <span className="text-zinc-600">So… How Does This Whole Thing </span>
+          <span className="text-zinc-600">How Does SnapIntel </span>
           Actually Work?
         </h3>
 
         <p className="text-zinc-500 text-base sm:text-lg font-semibold leading-relaxed">
-          Yes, it's fully on-chain, yes, liquidity is instant, and no, you don't
-          have to understand bonding curves to use it like an absolute pro.
+          From a raw visual snapshot to an authoritative multi-engine intelligence dossier in under two seconds.
         </p>
 
         <div className="flex flex-col gap-3 sm:gap-4 lg:gap-5 pr-0 lg:pr-10 relative">

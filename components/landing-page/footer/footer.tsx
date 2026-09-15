@@ -46,37 +46,6 @@ const Footer = () => {
               See Anything. Research It Instantly with SnapIntel.
             </h2>
 
-            <div className="flex flex-col gap-2 sm:gap-3 items-center">
-              <div className="flex gap-2 sm:gap-3 lg:gap-4">
-                {SOCIALS.map((social, index) => {
-                  // Use deterministic rotation to avoid hydration mismatch
-                  const rotations = [-5, 4];
-                  const rotation = rotations[index % rotations.length];
-
-                  return (
-                    <Link key={index} href={social.link}>
-                      <div
-                        className="p-2 sm:p-2.5 lg:p-3 border border-zinc-300 bg-white shadow-zinc-500 rounded-lg sm:rounded-xl hover:-translate-y-1 sm:hover:-translate-y-2 duration-300 transition-all"
-                        style={{
-                          transform: `rotate(${rotation}deg)`,
-                        }}
-                      >
-                        <img
-                          src={social.icon}
-                          alt={social.title}
-                          className="h-4 w-4 sm:h-5 sm:w-5"
-                          loading="lazy"
-                        />
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-
-              <p className="text-zinc-400 font-medium text-sm sm:text-base text-center px-4">
-                Follow us on these platforms
-              </p>
-            </div>
           </div>
         </div>
         <div className="h-[25%] sm:h-[22%] lg:h-[18%] xl:h-[20%] w-full backdrop-blur-2xl border-dashed border-t border-zinc-700 flex flex-col sm:flex-row rounded-b-2xl sm:rounded-b-3xl lg:rounded-b-4xl">

@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import Link from "next/link";
 
 const NAV_ITEMS = [
+  { title: "App", link: "/app" },
   { title: "About", link: "/about" },
   { title: "Contact", link: "/contact" },
 ];

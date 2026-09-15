@@ -11,8 +11,8 @@ const Tagline: React.FC = () => {
       />
 
       <h3 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl text-white max-w-2xl sm:max-w-3xl lg:max-w-4xl absolute top-0 mt-8 sm:mt-12 lg:mt-16 xl:mt-20 text-center leading-tight px-4 sm:px-6">
-        Discover, invest, and thrive{" "}
-        <span className="text-zinc-400">in the new creator economy.</span>
+        Discover, verify, and decide{" "}
+        <span className="text-zinc-400">with live multi-engine intelligence.</span>
       </h3>
     </div>
   );

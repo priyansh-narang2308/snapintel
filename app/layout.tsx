@@ -29,7 +29,8 @@ export const metadata: Metadata = {
     default: "SnapIntel: Visual Intelligence & Decision Engine",
     template: "%s | SnapIntel",
   },
-  description: "",
+  description:
+    "SnapIntel is an autonomous visual intelligence and market decision engine powered by SerpApi Google Lens, live merchant pricing, Reddit consensus, and OpenRouter AI verdicts.",
 };
 
 export default function RootLayout({
@@ -51,16 +52,11 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Project-1",
-              url: "https://draviya.com",
-              logo: "https://draviya.com/images/logo/logo-icon.png",
-              sameAs: [
-                "https://x.com/athrix_codes",
-                "https://github.com/Atharvsinh-codez/Project-1",
-              ],
+              "@type": "WebApplication",
+              name: "SnapIntel",
+              url: "https://snapintel.app",
               description:
-                "We’re turning your favorite creators into Investable tokens(similar to stocks). Buy, sell, and grow with the creators you believe in.",
+                "Multi-engine visual market intelligence and buying verdict platform.",
             }),
           }}
         />

@@ -10,7 +10,7 @@ const MiniCardSection: React.FC = () => {
           "/images/features/feature12.jpg",
         ]}
         rotation="rotate-1 sm:rotate-2"
-        title="Launch your own creator token like it's your personal IRO moment"
+        title="Instant visual entity recognition powered by SerpApi Google Lens"
       />
 
       <FeatureMiniCard
@@ -20,13 +20,13 @@ const MiniCardSection: React.FC = () => {
           "/images/features/feature23.png",
         ]}
         rotation="-rotate-1 sm:-rotate-3"
-        title="Buy and trade creator shares without the Wall Street drama"
+        title="Real-time price comparison across Amazon, Best Buy, and eBay"
       />
 
       <FeatureMiniCard
         images={["/images/logo/logo-icon.png"]}
         rotation="rotate-1 sm:rotate-4"
-        title="Build a flex-worthy portfolio powered by your favorite creators"
+        title="Synthesized buying verdicts powered by free OpenRouter LLMs"
       />
     </div>
   );
