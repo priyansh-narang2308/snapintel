@@ -26,64 +26,10 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://draviya.com"),
   title: {
-    default: "Project-1 | Invest in Creators",
-    template: "%s | Project-1",
+    default: "SnapIntel: Visual Intelligence & Decision Engine",
+    template: "%s | SnapIntel",
   },
-  description:
-    "We’re turning your favorite creators into Investable tokens(similar to stocks). Buy, sell, and grow with the creators you believe in.",
-  keywords: [
-    "Creator Economy",
-    "Invest in Creators",
-    "Creator Tokens",
-    "Project-1",
-    "Social Tokens",
-  ],
-  authors: [{ name: "Project-1 Team" }],
-  creator: "Project-1",
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: "https://draviya.com",
-    title: "Project-1 | Invest in Creators",
-    description:
-      "We’re turning your favorite creators into Investable tokens(similar to stocks). Buy, sell, and grow with the creators you believe in.",
-    siteName: "Project-1",
-    images: [
-      {
-        url: "/og-image.jpg", // Needs to be added to public folder later if not present
-        width: 1200,
-        height: 630,
-        alt: "Project-1 - Invest in Creators",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Project-1 | Invest in Creators",
-    description:
-      "We’re turning your favorite creators into Investable tokens(similar to stocks). Buy, sell, and grow with the creators you believe in.",
-    images: ["/og-image.jpg"],
-    creator: "@athrix_codes",
-  },
-  icons: {
-    icon: "/icon.svg",
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
-  },
-  alternates: {
-    canonical: "/",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  description: "",
 };
 
 export default function RootLayout({

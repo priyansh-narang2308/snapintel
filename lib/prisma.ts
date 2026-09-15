@@ -13,7 +13,7 @@ const connectionString =
 const createPrismaClient = () => {
   if (!connectionString) {
     console.warn(
-      "DATABASE_URL is not set. Database operations will fail at runtime."
+      "DATABASE_URL is not set. Database operations will fail at runtime.",
     );
     // Return a proxy that throws helpful errors when accessed
     return new Proxy({} as PrismaClient, {
@@ -21,7 +21,7 @@ const createPrismaClient = () => {
         if (prop === "then" || prop === "catch") return undefined;
         throw new Error(
           `DATABASE_URL environment variable must be set. ` +
-          `Please create a .env file with your database connection string.`
+            `Please create a .env file with your database connection string.`,
         );
       },
     });

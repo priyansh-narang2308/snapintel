@@ -12,7 +12,6 @@ export default function Page() {
       <Hero />
       <Features />
       <HowItWorks />
-      <FAQ />
       <Footer />
     </>
   );

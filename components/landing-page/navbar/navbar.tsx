@@ -93,8 +93,6 @@ const Navbar = () => {
           className="hidden md:flex gap-6 items-center"
         >
           <NavLinks />
-          <CTAButton />
-          <GitHubStars />
         </motion.div>
       </motion.div>
 
