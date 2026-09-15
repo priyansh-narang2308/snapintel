@@ -5,9 +5,7 @@ import { motion } from "motion/react";
 import Logo from "./logo";
 import BurgerButton from "./burger-button";
 import NavLinks from "./nav-links";
-import CTAButton from "./cta-button";
 import MobileMenu from "./mobile-menu";
-import GitHubStars from "./github-stars";
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -17,9 +15,6 @@ const Navbar = () => {
 
   const scrollThreshold = 120;
 
-  /* ---------------------------------------------
-  HANDLE NAVBAR SHOW/HIDE ON SCROLL
-  --------------------------------------------- */
   useEffect(() => {
     const handleScroll = () => {
       const current = window.scrollY;
@@ -63,8 +58,7 @@ const Navbar = () => {
   }, [isMobileMenuOpen]);
 
   return (
-    <div className="mobile-menu-container fixed top-0 left-0 w-full h-[100px] flex items-center justify-center z-50">
-      {/* Animated Navbar Shell */}
+    <div className="mobile-menu-container fixed top-0 left-0 w-full h-25 flex items-center justify-center z-50">
       <motion.div
         initial={{ scaleX: 0, scaleY: 0, opacity: 0 }}
         animate={{
@@ -77,7 +71,6 @@ const Navbar = () => {
       >
         <Logo />
 
-        {/* Mobile Button */}
         <div className="md:hidden">
           <BurgerButton
             isOpen={isMobileMenuOpen}
@@ -85,7 +78,6 @@ const Navbar = () => {
           />
         </div>
 
-        {/* Desktop Navigation */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: isVisible ? 1 : 0 }}
