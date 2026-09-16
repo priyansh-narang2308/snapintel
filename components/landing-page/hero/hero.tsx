@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import HeroLogos from "./hero-logos";
@@ -24,21 +25,23 @@ const Hero = () => {
 
       {/* Main Headline */}
       <div className="relative z-10 flex flex-col items-center justify-center w-full pt-16 md:pt-20 gap-8">
-        <HeroText text="See Anything. Research It Instantly." />
+        <HeroText text="Point. Scan. Decide." />
       </div>
 
       {/* Subtext and Liquid Metal Button lifted up */}
       <div className="relative z-10 flex flex-col items-center justify-center my-6 md:my-8 gap-5">
         <h2 className="font-medium text-base sm:text-xl md:text-2xl text-center text-zinc-800 max-w-xl px-4">
-          You&apos;ve been researching products manually.
-          <br /> Try autonomous visual intelligence.
+          Turn any product photo into an instant market intelligence dossier.
+          <br /> Powered by multi-engine SerpApi orchestration.
         </h2>
         <div className="flex justify-center px-4">
           <Link href="/app" className="inline-block cursor-pointer">
             <LiquidMetalButton
               size="lg"
               borderWidth={3}
-              icon={<ArrowRight className="w-5 h-5 text-orange-600 dark:text-orange-400" />}
+              icon={
+                <ArrowRight className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+              }
               metalConfig={{
                 colorBack: "#1c1917",
                 colorTint: "#f97316",
@@ -48,7 +51,7 @@ const Hero = () => {
               }}
             >
               <span className="text-base sm:text-lg font-semibold tracking-tight">
-                Launch SnapIntel App
+                Launch SnapIntel
               </span>
             </LiquidMetalButton>
           </Link>

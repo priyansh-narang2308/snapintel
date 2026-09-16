@@ -1,12 +1,9 @@
 import { SerpApiAnalysisResult } from "./serpapi";
 
 export interface OpenRouterVerdict {
-  verdict: "BUY NOW" | "WAIT FOR SALE" | "AVOID";
-  verdictRationale: string;
-  confidenceScore: number;
-  keyInsights: string[];
-  priceVerdict: string;
-  defectRisk: string;
+  verdict: "BUY" | "WAIT" | "AVOID";
+  executiveBrief: string;
+  keyDrivers: string[];
   timingAdvice: string;
   modelUsed: string;
 }
@@ -18,40 +15,58 @@ export async function generateVerdictWithOpenRouter(
   const model =
     process.env.OPENROUTER_MODEL || "inclusionai/ling-3.0-flash-vl:free";
 
-  // If no OpenRouter key is configured, provide rule-based synthesis
+  // If no OpenRouter key is configured, rely directly on the deterministic intelligence
   if (!apiKey) {
-    return generateFallbackVerdict(serpData);
+    return generateDeterministicVerdict(serpData);
   }
 
-  const prompt = `
-You are an expert consumer intelligence and market analyst for SnapIntel.
-Analyze the following multi-engine search data collected from SerpApi (Google Lens visual detection, Google Shopping prices, Google Search forum/defect discussions, Google Trends):
+  // Pass only the normalized, structured intelligence object
+  const normalizedContext = {
+    product: {
+      name: serpData.entity.title,
+      category: serpData.entity.category || "Consumer Product",
+    },
+    pricing: {
+      lowest: serpData.shopping.lowestPrice,
+      median: serpData.shopping.medianPrice,
+      highest: serpData.shopping.highestPrice,
+      deltaVsMedian: serpData.signals.priceCoverage.differenceFromMedian,
+      merchantCount: serpData.shopping.merchantCount,
+    },
+    signals: {
+      identification: serpData.signals.identification.level,
+      priceSignal: serpData.signals.priceCoverage.priceSignal,
+      recurringPros: serpData.signals.webEvidence.recurringPros,
+      recurringConcerns: serpData.signals.webEvidence.recurringConcerns,
+      demandMomentum: serpData.signals.demandSignal.level,
+    },
+    preCalculatedDecision: {
+      verdict: serpData.decision.verdict,
+      deterministicWhy: serpData.decision.oneLinerWhy,
+    },
+  };
 
-DETECTED ITEM: "${serpData.entity.title}" (${serpData.entity.category || "Consumer Product"})
-LOWEST PRICE: ${serpData.shopping.lowestPrice || "Unknown"}
-HIGHEST PRICE: ${serpData.shopping.highestPrice || "Unknown"}
-MERCHANTS FOUND: ${serpData.shopping.merchants.map((m) => `${m.name}: ${m.price}`).join(", ")}
-WEB CONSENSUS: ${serpData.webIntelligence.consensusSummary}
-REDDIT & REVIEW SIGNALS:
-${serpData.webIntelligence.signals.map((s) => `- [${s.type.toUpperCase()}] ${s.text} (${s.source})`).join("\n")}
-DISCUSSIONS:
-${serpData.webIntelligence.discussions.map((d) => `- ${d.title}: "${d.snippet}"`).join("\n")}
-TREND MOMENTUM: ${serpData.trends.momentum} (Current interest score: ${serpData.trends.interestScore}/100, change: ${serpData.trends.changePercentage}%)
+  const prompt = `
+You are the senior market analyst for SnapIntel.
+You have been provided with deterministic market signals calculated from SerpApi search engines (Google Lens, Google Shopping, Google Search, Google Trends).
+
+DATA DOSSIER:
+${JSON.stringify(normalizedContext, null, 2)}
 
 TASK:
-Deliver an executive purchasing verdict. Return ONLY valid raw JSON with this exact schema:
+Do NOT invent new data or contradict the preCalculatedDecision verdict (${serpData.decision.verdict}).
+Your role is to EXPLAIN the market intelligence clearly and concisely for an executive decision maker.
+
+Return ONLY a valid JSON object matching this schema:
 {
-  "verdict": "BUY NOW" | "WAIT FOR SALE" | "AVOID",
-  "verdictRationale": "A punchy, authoritative 1-sentence decision explanation.",
-  "confidenceScore": 85 to 98 (number),
-  "keyInsights": [
-    "Insight 1 (Pricing spread and best store)",
-    "Insight 2 (Community consensus, reliability or defects)",
-    "Insight 3 (Timing or upcoming replacement version)"
+  "verdict": "${serpData.decision.verdict}",
+  "executiveBrief": "A sharp, 2-sentence synthesis explaining why the evidence supports this decision.",
+  "keyDrivers": [
+    "Pricing spread and best purchasing option",
+    "Community consensus regarding performance vs recurring flaws",
+    "Demand trajectory and seasonal or inventory timing"
   ],
-  "priceVerdict": "Detailed price comparison statement",
-  "defectRisk": "Assessment of known defect or build issues",
-  "timingAdvice": "Advice on whether to buy today or wait"
+  "timingAdvice": "Actionable advice on whether to buy today or wait for specific discount catalysts."
 }
 `;
 
@@ -73,7 +88,7 @@ Deliver an executive purchasing verdict. Return ONLY valid raw JSON with this ex
 
     if (!res.ok) {
       console.warn("OpenRouter request failed:", res.status, await res.text());
-      return generateFallbackVerdict(serpData);
+      return generateDeterministicVerdict(serpData);
     }
 
     const data = await res.json();
@@ -82,60 +97,46 @@ Deliver an executive purchasing verdict. Return ONLY valid raw JSON with this ex
     if (jsonMatch) {
       const parsed = JSON.parse(jsonMatch[0]);
       return {
-        ...parsed,
+        verdict: serpData.decision.verdict,
+        executiveBrief: parsed.executiveBrief || serpData.decision.deterministicRationale,
+        keyDrivers: Array.isArray(parsed.keyDrivers) && parsed.keyDrivers.length > 0
+          ? parsed.keyDrivers
+          : serpData.decision.keyDrivers,
+        timingAdvice: parsed.timingAdvice || "Act according to observed stock thresholds.",
         modelUsed: model,
       };
     }
 
-    return generateFallbackVerdict(serpData);
+    return generateDeterministicVerdict(serpData);
   } catch (err) {
     console.error("OpenRouter synthesis error:", err);
-    return generateFallbackVerdict(serpData);
+    return generateDeterministicVerdict(serpData);
   }
 }
 
-function generateFallbackVerdict(
+function generateDeterministicVerdict(
   serpData: SerpApiAnalysisResult,
 ): OpenRouterVerdict {
-  const lowest = serpData.shopping.lowestPrice || "$0.00";
-  const title = serpData.entity.title;
-  const merchants = serpData.shopping.merchants;
-  const topStore = merchants[0]?.name || "Verified Merchants";
+  const { decision, signals, shopping } = serpData;
 
-  // Intelligent heuristics
-  const hasDefectWarning = serpData.webIntelligence.signals.some(
-    (s) => s.type === "warning",
-  );
-  const isTrendingDown = serpData.trends.momentum === "declining";
-
-  let verdict: "BUY NOW" | "WAIT FOR SALE" | "AVOID" = "BUY NOW";
-  let rationale = `Excellent value with verified inventory at ${lowest} via ${topStore}.`;
-
-  if (hasDefectWarning && isTrendingDown) {
-    verdict = "WAIT FOR SALE";
-    rationale = `Hardware refresh imminent and price is drifting downwards; hold off for steeper clearances.`;
-  } else if (hasDefectWarning && title.toLowerCase().includes("jordan")) {
-    verdict = "BUY NOW";
-    rationale = `High collector demand; ensure checkout through authenticated platforms with physical inspection.`;
-  }
+  const timingAdvice =
+    decision.verdict === "BUY"
+      ? `High retailer inventory and favorable pricing (${shopping.lowestPrice}) make current purchasing timing optimal.`
+      : decision.verdict === "WAIT"
+      ? `Price is currently hovering near median; hold for upcoming promotional cycles or clearance drops.`
+      : `Avoid purchase until reported hardware or batch caveats are officially addressed.`;
 
   return {
-    verdict,
-    verdictRationale: rationale,
-    confidenceScore: 92,
-    keyInsights: [
-      `Lowest verified listing is currently ${lowest} at ${topStore} across ${serpData.shopping.merchantCount} tracked sellers.`,
-      serpData.webIntelligence.signals[0]?.text ||
-        "Strong positive community feedback across Reddit tech teardowns.",
-      `Search volume indicates ${serpData.trends.momentum} consumer demand with ${serpData.trends.changePercentage > 0 ? "+" : ""}${serpData.trends.changePercentage}% month-over-month interest.`,
-    ],
-    priceVerdict: `Best deal currently at ${topStore} (${lowest}), saving substantial margin compared to MSRP.`,
-    defectRisk: hasDefectWarning
-      ? "Known batch caveats flagged in community forums; review warranty before purchasing."
-      : "Low failure rate reported across certified retail channels.",
-    timingAdvice: isTrendingDown
-      ? "Price softening detected. Waiting 2-4 weeks may yield additional promotional coupons."
-      : "High demand velocity. Buying now secures current stock levels.",
-    modelUsed: "SnapIntel Synthesis Engine (Rule-Grounded)",
+    verdict: decision.verdict,
+    executiveBrief: decision.deterministicRationale,
+    keyDrivers: decision.keyDrivers.length > 0
+      ? decision.keyDrivers
+      : [
+          `Observed lowest price is ${shopping.lowestPrice} across ${shopping.merchantCount} tracked retailers (${signals.priceCoverage.differenceFromMedian}).`,
+          signals.webEvidence.summary,
+          `Consumer demand momentum is ${signals.demandSignal.level.toLowerCase()}.`,
+        ],
+    timingAdvice,
+    modelUsed: "SnapIntel Deterministic Decision Engine",
   };
 }
