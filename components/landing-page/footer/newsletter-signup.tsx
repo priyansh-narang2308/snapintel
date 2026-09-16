@@ -26,7 +26,7 @@ export default function NewsletterSignup() {
 
   return (
     <form onSubmit={handleSubmit} className="w-full">
-      <div className="w-full h-10 sm:h-11 lg:h-12 xl:h-[50px] bg-[#121111cb] rounded-lg sm:rounded-xl border border-zinc-700 flex justify-between p-[2px]">
+      <div className="w-full h-10 sm:h-11 lg:h-12 xl:h-[50px] bg-[#121111cb] rounded-lg sm:rounded-xl border border-zinc-700 flex justify-between p-0.5">
         <input
           type="email"
           value={email}

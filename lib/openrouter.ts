@@ -16,7 +16,7 @@ export async function generateVerdictWithOpenRouter(
 ): Promise<OpenRouterVerdict> {
   const apiKey = process.env.OPENROUTER_API_KEY;
   const model =
-    process.env.OPENROUTER_MODEL || "meta-llama/llama-3.3-70b-instruct:free";
+    process.env.OPENROUTER_MODEL || "inclusionai/ling-3.0-flash-vl:free";
 
   // If no OpenRouter key is configured, provide rule-based synthesis
   if (!apiKey) {
