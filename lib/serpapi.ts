@@ -164,6 +164,7 @@ export function computeDeterministicDecision(params: {
     interestScore: number;
     momentum: "accelerating" | "stable" | "declining";
     changePercentage: number;
+    timeline?: Array<{ date: string; value: number }>;
   };
 }): {
   signals: DeterministicSignals;
@@ -215,11 +216,7 @@ export function computeDeterministicDecision(params: {
 
   // 2. Identification confidence
   const idLevel: "HIGH" | "MODERATE" | "LOW" =
-    visualMatchesCount >= 4
-      ? "HIGH"
-      : visualMatchesCount >= 1
-        ? "MODERATE"
-        : "LOW";
+    visualMatchesCount >= 4 ? "HIGH" : visualMatchesCount >= 1 ? "MODERATE" : "LOW";
 
   // 3. Web & Community Signals
   const textCorpus = discussions
@@ -241,10 +238,7 @@ export function computeDeterministicDecision(params: {
   if (textCorpus.includes("classic") || textCorpus.includes("leather"))
     recurringPros.push("High-grade materials & silhouette");
   if (recurringPros.length === 0)
-    recurringPros.push(
-      "Solid mainstream user satisfaction",
-      "High retailer availability",
-    );
+    recurringPros.push("Solid mainstream user satisfaction", "High retailer availability");
 
   // Concern keywords check
   if (textCorpus.includes("durab") || textCorpus.includes("hinge"))
@@ -284,9 +278,7 @@ export function computeDeterministicDecision(params: {
 
   const titleLower = title.toLowerCase();
 
-  if (
-    recurringConcerns.some((c) => c.includes("defect") || c.includes("fail"))
-  ) {
+  if (recurringConcerns.some((c) => c.includes("defect") || c.includes("fail"))) {
     verdict = "AVOID";
     oneLinerWhy =
       "Recurring hardware or batch failures flagged across consumer discussion forums.";
@@ -507,16 +499,14 @@ export const DEMO_SHOWCASES: Record<string, SerpApiAnalysisResult> = {
       ],
       discussions: [
         {
-          title:
-            "Are AirPods Max still worth buying or wait for USB-C refresh?",
+          title: "Are AirPods Max still worth buying or wait for USB-C refresh?",
           source: "Reddit · r/apple",
           snippet:
             "Unless you can find them under $350 open box, waiting is smarter. The Lightning connector is completely dated.",
           link: "https://reddit.com/r/apple",
         },
         {
-          title:
-            "AirPods Max condensation issue after 2 years - honest retrospective",
+          title: "AirPods Max condensation issue after 2 years - honest retrospective",
           source: "MacRumors Forums",
           snippet:
             "Water droplets form under magnetic ear cushions in humid climates or workouts. Sound is 10/10 though.",
@@ -540,8 +530,7 @@ export const DEMO_SHOWCASES: Record<string, SerpApiAnalysisResult> = {
       identification: {
         level: "HIGH",
         label: "High Agreement",
-        details:
-          "Exact SKU match identified across 9 Google Lens visual sources",
+        details: "Exact SKU match identified across 9 Google Lens visual sources",
       },
       priceCoverage: {
         level: "STRONG",
@@ -829,7 +818,8 @@ export const DEMO_SHOWCASES: Record<string, SerpApiAnalysisResult> = {
     },
     visualMatches: [
       {
-        title: "CeraVe Hydrating Facial Cleanser for Normal to Dry Skin 16 oz",
+        title:
+          "CeraVe Hydrating Facial Cleanser for Normal to Dry Skin 16 oz",
         source: "Target",
         link: "https://target.com",
         thumbnail:
@@ -1105,7 +1095,8 @@ export async function analyzeImageWithSerpApi(
       engineAttributions.push({
         engine: "google",
         displayName: "Google Search",
-        description: "Reddit discussions, defect reports & community consensus",
+        description:
+          "Reddit discussions, defect reports & community consensus",
       });
 
       const organic = searchData.organic_results || [];

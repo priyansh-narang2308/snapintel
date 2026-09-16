@@ -1,4 +1,3 @@
-import FAQ from "@/components/landing-page/faq/faq";
 import Features from "@/components/landing-page/features/features";
 import Footer from "@/components/landing-page/footer/footer";
 import Hero from "@/components/landing-page/hero/hero";
