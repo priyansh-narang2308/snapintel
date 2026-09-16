@@ -50,12 +50,23 @@ export default function SnapIntelAnalyzer() {
     compDemoKey?: string,
   ) => {
     const targetUrl = customUrl !== undefined ? customUrl : imageUrl;
+
+    // If a real URL is provided, don't send demoKey — force a live SerpApi scan
     const targetDemo =
-      demoKey !== undefined ? demoKey : activeDemo || undefined;
+      targetUrl && targetUrl.startsWith("http")
+        ? undefined
+        : demoKey !== undefined
+          ? demoKey
+          : activeDemo || undefined;
 
     if (!targetUrl && !targetDemo) {
       setError("Please paste an image URL or choose a demo showcase.");
       return;
+    }
+
+    // Clear demo selection when doing a live URL scan
+    if (targetUrl && targetUrl.startsWith("http")) {
+      setActiveDemo(null);
     }
 
     setError(null);
@@ -70,10 +81,15 @@ export default function SnapIntelAnalyzer() {
 
     try {
       const payload: any = {
-        imageUrl: targetUrl,
-        demoKey: targetDemo,
         scanTier: tier,
       };
+
+      // Only send one: either imageUrl for live scan, or demoKey for cached demo
+      if (targetDemo) {
+        payload.demoKey = targetDemo;
+      } else {
+        payload.imageUrl = targetUrl;
+      }
 
       if (activeTab === "compare") {
         payload.compareDemoKey = compDemoKey || compareDemoB;

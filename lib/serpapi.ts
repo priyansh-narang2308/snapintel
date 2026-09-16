@@ -1049,7 +1049,7 @@ export async function analyzeImageWithSerpApi(
       name: item.source || "Merchant",
       price: item.price || "$0.00",
       extractedPrice: item.extracted_price || 0,
-      link: item.link || "#",
+      link: item.product_link || item.link || "#",
       rating: item.rating,
       reviewsCount: item.reviews,
       delivery: item.delivery || "Standard shipping",
