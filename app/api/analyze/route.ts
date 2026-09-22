@@ -14,9 +14,9 @@ export async function POST(req: NextRequest) {
       compareDemoKey,
     } = body;
 
-    if (!imageUrl && !demoKey) {
+    if (!imageUrl && !demoKey && !body.imageBase64) {
       return NextResponse.json(
-        { error: "Please provide an image URL or choose a demo showcase." },
+        { error: "Please provide an image URL, screenshot upload, or choose a demo showcase." },
         { status: 400 },
       );
     }
@@ -25,21 +25,23 @@ export async function POST(req: NextRequest) {
       scanTier === "quick" || scanTier === "deep" ? scanTier : "smart";
 
     // Primary product analysis
-    const serpResultA = await analyzeImageWithSerpApi(
-      imageUrl || "",
+    const serpResultA = await analyzeImageWithSerpApi({
+      imageUrl: imageUrl || "",
+      imageBase64: body.imageBase64,
       demoKey,
-      tier,
-    );
+      scanTier: tier,
+    });
     const aiVerdictA = await generateVerdictWithOpenRouter(serpResultA);
 
     // Optional comparison product analysis
     let comparison = null;
-    if (compareImageUrl || compareDemoKey) {
-      const serpResultB = await analyzeImageWithSerpApi(
-        compareImageUrl || "",
-        compareDemoKey,
-        tier,
-      );
+    if (compareImageUrl || compareDemoKey || body.compareImageBase64) {
+      const serpResultB = await analyzeImageWithSerpApi({
+        imageUrl: compareImageUrl || "",
+        imageBase64: body.compareImageBase64,
+        demoKey: compareDemoKey,
+        scanTier: tier,
+      });
       const aiVerdictB = await generateVerdictWithOpenRouter(serpResultB);
 
       // Deterministic trade-off calculation

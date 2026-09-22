@@ -974,11 +974,17 @@ export const DEMO_SHOWCASES: Record<string, SerpApiAnalysisResult> = {
 // -------------------------------------------------------------
 // MULTI-ENGINE PIPELINE RUNNER WITH TIERED SEARCH & CACHE
 // -------------------------------------------------------------
-export async function analyzeImageWithSerpApi(
-  imageUrl: string,
-  demoKey?: string,
-  scanTier: ScanTier = "smart",
-): Promise<SerpApiAnalysisResult> {
+export async function analyzeImageWithSerpApi({
+  imageUrl,
+  imageBase64,
+  demoKey,
+  scanTier = "smart",
+}: {
+  imageUrl: string;
+  imageBase64?: string;
+  demoKey?: string;
+  scanTier?: ScanTier;
+}): Promise<SerpApiAnalysisResult> {
   // 1. If demo showcase is selected: return pre-cached dossier with 0 credit burn
   if (demoKey && DEMO_SHOWCASES[demoKey]) {
     return DEMO_SHOWCASES[demoKey];
@@ -999,20 +1005,48 @@ export async function analyzeImageWithSerpApi(
     return DEMO_SHOWCASES["airpods-max"];
   }
 
+  let creditsUsed = 0;
+  const engineAttributions: Array<{
+    engine: "google_lens" | "google_shopping" | "google" | "google_trends";
+    displayName: string;
+    description: string;
+  }> = [];
+
   try {
-    let creditsUsed = 0;
-    const engineAttributions: Array<{
-      engine: "google_lens" | "google_shopping" | "google" | "google_trends";
-      displayName: string;
-      description: string;
-    }> = [];
+    // -------------------------------------------------------------
+    // CALL 0: Image Upload (if base64 provided)
+    // -------------------------------------------------------------
+    let targetImageId: string | undefined = undefined;
+    if (imageBase64) {
+      const base64Data = imageBase64.replace(/^data:image\/\w+;base64,/, "");
+      const buffer = Buffer.from(base64Data, "base64");
+      const blob = new Blob([buffer], { type: "image/jpeg" });
+      
+      const formData = new FormData();
+      formData.append("image", blob, "upload.jpg");
+      formData.append("api_key", apiKey);
+
+      const uploadRes = await fetch("https://serpapi.com/image", {
+        method: "POST",
+        body: formData,
+      });
+      const uploadJson = await uploadRes.json();
+      if (!uploadRes.ok || uploadJson.error) {
+        throw new Error(`SerpApi Image Upload failed: ${uploadJson.error || uploadRes.statusText}`);
+      }
+      targetImageId = uploadJson.image_id;
+    }
 
     // -------------------------------------------------------------
     // CALL 1: Google Lens API (Identification) - Always called
     // -------------------------------------------------------------
     const lensUrl = new URL("https://serpapi.com/search");
     lensUrl.searchParams.append("engine", "google_lens");
-    lensUrl.searchParams.append("url", imageUrl);
+    if (targetImageId) {
+      lensUrl.searchParams.append("image_id", targetImageId);
+    } else {
+      lensUrl.searchParams.append("url", imageUrl);
+    }
     lensUrl.searchParams.append("api_key", apiKey);
 
     const lensRes = await fetch(lensUrl.toString(), {

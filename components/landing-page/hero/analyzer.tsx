@@ -46,8 +46,9 @@ export default function SnapIntelAnalyzer() {
   const handleRunAnalysis = async (
     customUrl?: string,
     demoKey?: string,
-    tier: ScanTier = scanTier,
+    tier: ScanTier = "smart",
     compDemoKey?: string,
+    imageBase64?: string,
   ) => {
     const targetUrl = customUrl !== undefined ? customUrl : imageUrl;
 
@@ -59,13 +60,13 @@ export default function SnapIntelAnalyzer() {
           ? demoKey
           : activeDemo || undefined;
 
-    if (!targetUrl && !targetDemo) {
-      setError("Please paste an image URL or choose a demo showcase.");
+    if (!targetUrl && !targetDemo && !imageBase64) {
+      setError("Please paste an image URL, choose a demo, or upload an image.");
       return;
     }
 
-    // Clear demo selection when doing a live URL scan
-    if (targetUrl && targetUrl.startsWith("http")) {
+    // Clear demo selection when doing a live URL/upload scan
+    if ((targetUrl && targetUrl.startsWith("http")) || imageBase64) {
       setActiveDemo(null);
     }
 
@@ -77,15 +78,17 @@ export default function SnapIntelAnalyzer() {
       setLoadingStep((prev) =>
         prev < LOADING_STAGES.length - 1 ? prev + 1 : prev,
       );
-    }, 600);
+    }, 3500);
 
     try {
       const payload: any = {
         scanTier: tier,
       };
 
-      // Only send one: either imageUrl for live scan, or demoKey for cached demo
-      if (targetDemo) {
+      // Only send one: either imageUrl/imageBase64 for live scan, or demoKey for cached demo
+      if (imageBase64) {
+        payload.imageBase64 = imageBase64;
+      } else if (targetDemo) {
         payload.demoKey = targetDemo;
       } else {
         payload.imageUrl = targetUrl;

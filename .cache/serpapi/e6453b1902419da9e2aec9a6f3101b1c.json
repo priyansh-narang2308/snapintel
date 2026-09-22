@@ -1,0 +1,148 @@
+{
+  "isCached": false,
+  "isDemo": false,
+  "scanTier": "smart",
+  "creditsUsed": 3,
+  "engineAttributions": [
+    {
+      "engine": "google_lens",
+      "displayName": "Google Lens",
+      "description": "Visual entity match & reverse-image identification"
+    },
+    {
+      "engine": "google_shopping",
+      "displayName": "Google Shopping",
+      "description": "Live merchant pricing, inventory & discount spread"
+    },
+    {
+      "engine": "google",
+      "displayName": "Google Search",
+      "description": "Reddit discussions, defect reports & community consensus"
+    }
+  ],
+  "entity": {
+    "title": "Adidas Originals Rivalry Low White Green Classic New Men ...",
+    "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQAdFXgTHZdl7P-DNkC8ONRho7yf0Q8dQisQYOhW5n95a8W3GMJ",
+    "sourceUrl": "https://www.ebay.com/itm/156189034797",
+    "alternativeMatches": [
+      {
+        "title": "Adidas Originals Rivaly Low Mens Size 10 Collegiate Green ...",
+        "source": "eBay",
+        "link": "https://www.ebay.com/itm/267680397546"
+      },
+      {
+        "title": "adidas Rivalry Low Trainers Unisex - Adult, Green Collegiate ...",
+        "source": "Amazon.it",
+        "link": "https://www.amazon.it/-/en/adidas-Rivalry-Low-Trainers-Unisex/dp/B0CLYGYD2B"
+      }
+    ]
+  },
+  "visualMatches": [
+    {
+      "title": "Adidas Originals Rivalry Low White Green Classic New Men ...",
+      "source": "eBay",
+      "link": "https://www.ebay.com/itm/156189034797",
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQAdFXgTHZdl7P-DNkC8ONRho7yf0Q8dQisQYOhW5n95a8W3GMJ"
+    },
+    {
+      "title": "Adidas Originals Rivaly Low Mens Size 10 Collegiate Green ...",
+      "source": "eBay",
+      "link": "https://www.ebay.com/itm/267680397546",
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcScT5Fg9Qx2bm_2x_LtoZ3Du00e482Zwsjtyw_ON4WCj5rCto-b"
+    },
+    {
+      "title": "adidas Rivalry Low Trainers Unisex - Adult, Green Collegiate ...",
+      "source": "Amazon.it",
+      "link": "https://www.amazon.it/-/en/adidas-Rivalry-Low-Trainers-Unisex/dp/B0CLYGYD2B",
+      "thumbnail": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQYbD5-BcBhnOKI2dTsr09AelW2Cpu1ndzxspsAYiBts9Cmd-30"
+    },
+    {
+      "title": "adidas | Shoes | Adidas Original Rivalry Low Sneakers | Poshmark",
+      "source": "Poshmark",
+      "link": "https://poshmark.com/listing/adidas-Original-Rivalry-Low-Sneakers-69d05a37fe4c681a22f5b96a",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlZmVmQxEitew__7FJoOAJ66qPv26SQUuUUWUEEMRoiAwFFoJp",
+      "price": {
+        "value": "$60*",
+        "extracted_value": 60,
+        "currency": "$"
+      }
+    }
+  ],
+  "shopping": {
+    "lowestPrice": "Unavailable",
+    "medianPrice": "Unavailable",
+    "highestPrice": "Unavailable",
+    "currency": "USD",
+    "merchantCount": 0,
+    "merchants": []
+  },
+  "webIntelligence": {
+    "consensusSummary": "The leather cracked in some places which is somewhat expected after heavy use. The inside cloth material also have torn but I guess due to the ...",
+    "signals": [
+      {
+        "type": "positive",
+        "text": "High commercial availability across 0 verified merchant listings.",
+        "source": "Google Shopping Index",
+        "link": "https://www.ebay.com/itm/156189034797"
+      }
+    ],
+    "discussions": [
+      {
+        "title": "Can't decide. What's the better cop, the Adidas Rivalry Low ...",
+        "source": "Reddit · r/moresneakers",
+        "snippet": "The leather cracked in some places which is somewhat expected after heavy use. The inside cloth material also have torn but I guess due to the ...",
+        "link": "https://www.reddit.com/r/moresneakers/comments/186hf4p/cant_decide_whats_the_better_cop_the_adidas/"
+      },
+      {
+        "title": "adidas rivalry low has stitching issue? need to know if its ...",
+        "source": "Reddit · r/adidas",
+        "snippet": "adidas rivalry low has stitching issue? need to know if its normal or some defect or fake altogether.",
+        "link": "https://www.reddit.com/r/adidas/comments/1fy213b/adidas_rivalry_low_has_stitching_issue_need_to/"
+      },
+      {
+        "title": "My Review of The Adidas Forum Lows : r/SneakersIndia",
+        "source": "Reddit · r/SneakersIndia",
+        "snippet": "When I first wore them ,they weren't as much comfortable as I thought they would be. The feets started hurting after 2-3 hours of wearing them ...",
+        "link": "https://www.reddit.com/r/SneakersIndia/comments/1kbaqp3/my_review_of_the_adidas_forum_lows/"
+      }
+    ]
+  },
+  "signals": {
+    "identification": {
+      "level": "HIGH",
+      "label": "HIGH Agreement",
+      "details": "59 high-resolution visual matches confirmed via Google Lens"
+    },
+    "priceCoverage": {
+      "level": "LIMITED",
+      "merchantCount": 0,
+      "lowestPrice": "Unavailable",
+      "medianPrice": "Unavailable",
+      "highestPrice": "Unavailable",
+      "differenceFromMedian": "At median",
+      "priceSignal": "NEUTRAL"
+    },
+    "webEvidence": {
+      "level": "POSITIVE",
+      "discussionCount": 3,
+      "summary": "3 independent community reviews and forum teardowns analyzed",
+      "recurringPros": [
+        "Comfortable fit & ergonomics",
+        "High-grade materials & silhouette"
+      ],
+      "recurringConcerns": []
+    },
+    "demandSignal": {
+      "level": "UNAVAILABLE"
+    }
+  },
+  "decision": {
+    "verdict": "WAIT",
+    "oneLinerWhy": "Market pricing is currently stable at Unavailable; hold for upcoming promotional events.",
+    "deterministicRationale": "Price is hovering near median with no active clearance discounts.",
+    "keyDrivers": [
+      "Current lowest: Unavailable (At median)",
+      "Market pricing spread is tight across 0 merchants"
+    ]
+  }
+}

@@ -28,7 +28,7 @@ interface AnalyzerInputProps {
   loadingStep: number;
   loadingStages: string[];
   error: string | null;
-  onRunAnalysis: (customUrl?: string, demoKey?: string, tier?: ScanTier, compDemoKey?: string) => void;
+  onRunAnalysis: (customUrl?: string, demoKey?: string, tier?: ScanTier, compDemoKey?: string, imageBase64?: string) => void;
   isCached?: boolean;
   creditsUsed?: number;
 }
@@ -54,6 +54,62 @@ export function AnalyzerInput({
   isCached,
   creditsUsed,
 }: AnalyzerInputProps) {
+  const [imageBase64, setImageBase64] = React.useState<string | undefined>();
+  const [isDragging, setIsDragging] = React.useState(false);
+
+  const processFile = (file: File) => {
+    if (!file.type.startsWith("image/")) return;
+    
+    // Clear other inputs
+    setImageUrl("");
+    
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const img = new Image();
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        let width = img.width;
+        let height = img.height;
+        
+        // Resize if too large (max 1200px width/height to stay < 500KB)
+        const MAX_SIZE = 1200;
+        if (width > height && width > MAX_SIZE) {
+          height *= MAX_SIZE / width;
+          width = MAX_SIZE;
+        } else if (height > MAX_SIZE) {
+          width *= MAX_SIZE / height;
+          height = MAX_SIZE;
+        }
+        
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext("2d");
+        if (ctx) {
+          ctx.drawImage(img, 0, 0, width, height);
+          const compressedBase64 = canvas.toDataURL("image/jpeg", 0.8);
+          setImageBase64(compressedBase64);
+        }
+      };
+      img.src = event.target?.result as string;
+    };
+    reader.readAsDataURL(file);
+  };
+
+  React.useEffect(() => {
+    const handlePaste = (e: ClipboardEvent) => {
+      const items = e.clipboardData?.items;
+      if (!items) return;
+      for (const item of items) {
+        if (item.type.indexOf("image") !== -1) {
+          const file = item.getAsFile();
+          if (file) processFile(file);
+        }
+      }
+    };
+    window.addEventListener("paste", handlePaste);
+    return () => window.removeEventListener("paste", handlePaste);
+  }, []);
+
   return (
     <div className="bg-white border border-zinc-200/80 rounded-2xl p-6 sm:p-8 shadow-sm">
       <div className="flex flex-col gap-6">
@@ -116,17 +172,44 @@ export function AnalyzerInput({
         {/* Tab 1: Single Mode Input */}
         {activeTab === "single" ? (
           <div className="flex flex-col gap-3">
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="url"
-                value={imageUrl}
-                onChange={(e) => setImageUrl(e.target.value)}
-                placeholder="Paste any product image or screenshot URL (https://...)"
-                className="flex-1 h-12 px-4 bg-zinc-50 border border-zinc-300 focus:border-zinc-900 focus:bg-white rounded-xl text-zinc-900 placeholder-zinc-400 text-sm outline-none transition-colors"
-              />
+            <div 
+              className={`flex flex-col sm:flex-row gap-3 p-2 rounded-2xl border-2 transition-all ${isDragging ? "border-zinc-900 bg-zinc-50" : "border-transparent"}`}
+              onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
+              onDragLeave={() => setIsDragging(false)}
+              onDrop={(e) => {
+                e.preventDefault();
+                setIsDragging(false);
+                if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                  processFile(e.dataTransfer.files[0]);
+                }
+              }}
+            >
+              <div className="flex-1 relative flex items-center">
+                {imageBase64 && (
+                  <div className="absolute left-2 w-10 h-10 rounded-lg overflow-hidden border border-zinc-200">
+                    <img src={imageBase64} className="w-full h-full object-cover" alt="Preview" />
+                  </div>
+                )}
+                <input
+                  type="text"
+                  value={imageBase64 ? "Local Screenshot Added" : imageUrl}
+                  readOnly={!!imageBase64}
+                  onChange={(e) => setImageUrl(e.target.value)}
+                  placeholder="Paste URL, Ctrl+V screenshot, or Drag & Drop"
+                  className={`w-full h-12 ${imageBase64 ? "pl-14 text-zinc-900 font-medium" : "px-4"} bg-zinc-50 border border-zinc-300 focus:border-zinc-900 focus:bg-white rounded-xl text-zinc-900 placeholder-zinc-400 text-sm outline-none transition-colors`}
+                />
+                {imageBase64 && (
+                  <button 
+                    onClick={() => setImageBase64(undefined)} 
+                    className="absolute right-3 text-zinc-400 hover:text-red-500 cursor-pointer"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
               <button
-                onClick={() => onRunAnalysis(imageUrl, undefined, scanTier)}
-                disabled={isLoading || (!imageUrl && !activeDemo)}
+                onClick={() => onRunAnalysis(imageUrl, undefined, scanTier, undefined, imageBase64)}
+                disabled={isLoading || (!imageUrl && !activeDemo && !imageBase64)}
                 className="h-12 px-6 bg-zinc-900 hover:bg-black text-white font-medium text-sm rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap cursor-pointer"
               >
                 {isLoading ? "Running Scan..." : "Analyze Visual"}
