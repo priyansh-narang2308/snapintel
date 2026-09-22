@@ -33,18 +33,18 @@ graph TD
 - **Deterministic Math Engine**: Price analysis is not left to an LLM hallucination. The engine mathematically calculates medians and utilizes outlier rejection algorithms to drop fake or accessory listings (e.g., filtering out a $20 case for a $300 headphone) to determine true market value.
 - **Multi-Engine Data Synthesis (SerpApi Orchestration)**:
   SnapIntel utilizes 5 distinct SerpApi endpoints in a sequential, context-aware chain:
-  1. **SerpApi Image Upload API (`https://serpapi.com/image`)**: 
+  1. **SerpApi Image Upload API (`https://serpapi.com/image`)**:
      - **Purpose**: Bypasses the need for public image URLs. Compresses local screenshots via client-side canvas and uploads them via `multipart/form-data` to receive a temporary `image_id`.
-  2. **Google Lens Engine (`engine: "google_lens"`)**: 
+  2. **Google Lens Engine (`engine: "google_lens"`)**:
      - **Purpose**: Visual SKU identification.
      - **Execution**: Takes the `image_id` (or URL) and returns exact product matches. We parse the `visual_matches` array to extract the highest-confidence title, thumbnail, and source URL.
-  3. **Google Shopping Engine (`engine: "google_shopping"`)**: 
+  3. **Google Shopping Engine (`engine: "google_shopping"`)**:
      - **Purpose**: Real-time cross-merchant price aggregation and market median calculation.
      - **Execution**: Searches the exact SKU identified by Lens. We iterate through `shopping_results` to extract `price`, `source`, `rating`, and `reviews`. The engine mathematically calculates the absolute lowest and median prices, while intentionally discarding extreme outliers (e.g., $20 accessory cases for a $400 headphone).
-  4. **Google Search Organic Engine (`engine: "google"`)**: 
+  4. **Google Search Organic Engine (`engine: "google"`)**:
      - **Purpose**: Community sentiment and defect discovery.
      - **Execution**: Automatically constructs an advanced search operator query (`q: "site:reddit.com <SKU> issues OR defects"`). We extract the `snippet` and `title` from `organic_results` to feed the LLM with raw, unfiltered community consensus.
-  5. **Google Trends Engine (`engine: "google_trends"`)**: 
+  5. **Google Trends Engine (`engine: "google_trends"`)**:
      - **Purpose**: 12-month consumer demand momentum tracking.
      - **Execution**: Queries the SKU and parses the `interest_over_time` timeline data to calculate demand velocity (Rising, Stable, or Declining) by comparing the most recent 3 months of search volume against the historical baseline.
 - **Tiered Scanning**: Users can select Quick (2 APIs), Smart (3 APIs), or Deep (4 APIs) scans to control API credit expenditure.
