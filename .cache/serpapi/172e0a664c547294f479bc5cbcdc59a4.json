@@ -1,0 +1,500 @@
+{
+  "isCached": false,
+  "isDemo": false,
+  "scanTier": "deep",
+  "creditsUsed": 4,
+  "engineAttributions": [
+    {
+      "engine": "google_lens",
+      "displayName": "Google Lens",
+      "description": "Visual entity match & reverse-image identification"
+    },
+    {
+      "engine": "google_shopping",
+      "displayName": "Google Shopping",
+      "description": "Live merchant pricing, inventory & discount spread"
+    },
+    {
+      "engine": "google",
+      "displayName": "Google Search",
+      "description": "Reddit discussions, defect reports & community consensus"
+    },
+    {
+      "engine": "google_trends",
+      "displayName": "Google Trends",
+      "description": "12-month consumer search trajectory & momentum"
+    }
+  ],
+  "entity": {
+    "title": "Nike Air Force 1 '07 Women's Shoes. Nike.com",
+    "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSi2rd5i9NuvVfKipJqHxSJ0CW7Zve1MUnjRO4mRv3nVPVCum3S",
+    "sourceUrl": "https://www.nike.com/t/air-force-1-07-womens-shoes-PqdxJw",
+    "alternativeMatches": [
+      {
+        "title": "Nike Air Force 1 '07 - Men's | Foot Locker",
+        "source": "Foot Locker",
+        "link": "https://www.footlocker.com/product/model/nike-air-force-1-07-mens/333263.html"
+      },
+      {
+        "title": "Amazon.com: Nike Men's Air Force 1 '07 Shoes",
+        "source": "Amazon.com",
+        "link": "https://www.amazon.com/clp/B01HK4Y3KG"
+      }
+    ]
+  },
+  "visualMatches": [
+    {
+      "title": "Nike Air Force 1 '07 Women's Shoes. Nike.com",
+      "source": "Nike",
+      "link": "https://www.nike.com/t/air-force-1-07-womens-shoes-PqdxJw",
+      "thumbnail": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSi2rd5i9NuvVfKipJqHxSJ0CW7Zve1MUnjRO4mRv3nVPVCum3S",
+      "price": {
+        "value": "$125*",
+        "extracted_value": 125,
+        "currency": "$"
+      }
+    },
+    {
+      "title": "Nike Air Force 1 '07 - Men's | Foot Locker",
+      "source": "Foot Locker",
+      "link": "https://www.footlocker.com/product/model/nike-air-force-1-07-mens/333263.html",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuAPJP8Jyw_kVzN3Q7NhxJUZVQSps13-TF8uBGVMpXbRpKNGNm",
+      "price": {
+        "value": "$115*",
+        "extracted_value": 115,
+        "currency": "$"
+      }
+    },
+    {
+      "title": "Amazon.com: Nike Men's Air Force 1 '07 Shoes",
+      "source": "Amazon.com",
+      "link": "https://www.amazon.com/clp/B01HK4Y3KG",
+      "thumbnail": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyTln-ibV9_JI8T6Zroc1Uz8JlG_VQNZBb9DD1nlkk9fC9MpIP"
+    },
+    {
+      "title": "Nike Air Force 1 '07 LV8 Men's Shoes. Nike.com",
+      "source": "Nike",
+      "link": "https://www.nike.com/t/air-force-1-07-lv8-usa-mens-shoes-5PBzpHVE",
+      "thumbnail": "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQS1fyatvbLmEKzeX1UjvHR7NxI2cmzS-yrzPuHt0KlT1g8eeFx"
+    }
+  ],
+  "shopping": {
+    "lowestPrice": "$57.00",
+    "medianPrice": "$115.00",
+    "highestPrice": "$140.00",
+    "currency": "USD",
+    "merchantCount": 40,
+    "merchants": [
+      {
+        "name": "Nike",
+        "price": "$115.00",
+        "extractedPrice": 115,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:1294085998350590007,productid:16060398090384213828,headlineOfferDocid:1974795625033279568,imageDocid:7853386701154991221,rds:PC_907184281466721710|PROD_PC_907184281466721710,gpcid:2451599630344968266,mid:576462550668192308,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.8,
+        "reviewsCount": 25000,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "Nike",
+        "price": "$106.97",
+        "extractedPrice": 106.97,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:14499460355843384170,productid:15306313906028308005,headlineOfferDocid:11951139228898626134,imageDocid:748753720623740416,rds:PC_12841205828268411294|PROD_PC_12841205828268411294,gpcid:15840638549907335800,mid:576462842780719627,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.7,
+        "reviewsCount": 9600,
+        "delivery": "Free delivery by Sat"
+      },
+      {
+        "name": "nike.com",
+        "price": "$100.97",
+        "extractedPrice": 100.97,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:2602921003977416200,productid:7389007211144464116,headlineOfferDocid:10158800791568782790,imageDocid:12420514123884901369,rds:PC_11962270553754240181|PROD_PC_11962270553754240181,gpcid:11962270553754240181,mid:576462537850841536,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.8,
+        "reviewsCount": 6600,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "Nike",
+        "price": "$140.00",
+        "extractedPrice": 140,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:1539529946772196375,productid:7435009101805011193,headlineOfferDocid:7705993935708405659,imageDocid:4512957862063222690,rds:PC_1333080715149680519|PROD_PC_1333080715149680519,gpcid:1333080715149680519,mid:576462567083375349,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.7,
+        "reviewsCount": 785,
+        "delivery": "Free delivery by Sat"
+      },
+      {
+        "name": "nike.com",
+        "price": "$115.00",
+        "extractedPrice": 115,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:8360092716027664203,productid:16071737799350179096,headlineOfferDocid:8829798305501829168,imageDocid:1013022018087999772,pvt:a&hl=en&gl=us&udm=28",
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "nike.com",
+        "price": "$125.00",
+        "extractedPrice": 125,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:7136643993703144527,productid:17149741188137583252,headlineOfferDocid:1386760535330454013,imageDocid:8894436138864617327,gpcid:343471647277764858,mid:576462896521685430,pvt:a&hl=en&gl=us&udm=28",
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "DICK'S Sporting Goods",
+        "price": "$114.99",
+        "extractedPrice": 114.99,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=productid:6377475995339587082,headlineOfferDocid:6377475995339587082,imageDocid:5751396185274854982,rds:PC_17205152073537682173|PROD_PC_17205152073537682173,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.7,
+        "reviewsCount": 1400,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "JD Sports",
+        "price": "$115.00",
+        "extractedPrice": 115,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=productid:17515509665315170784,headlineOfferDocid:17515509665315170784,imageDocid:7853386701154991221,rds:PC_12841205828268411294|PROD_PC_12841205828268411294,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.7,
+        "reviewsCount": 9600,
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "DTLR",
+        "price": "$109.98",
+        "extractedPrice": 109.98,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:4762958429184594804,productid:6872728706162725366,headlineOfferDocid:5774144161539731179,imageDocid:4096485073104489093,rds:PC_17558683349034479137|PROD_PC_17558683349034479137,gpcid:7897122354904324852,mid:576462898603260192,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.8,
+        "reviewsCount": 148,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "Finish Line",
+        "price": "$90.00",
+        "extractedPrice": 90,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:5073645646761105150,productid:10368191560608047201,headlineOfferDocid:15278044418854539427,imageDocid:16229053134246181880,rds:PC_3673183937319313444|PROD_PC_3673183937319313444,gpcid:3673183937319313444,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 5,
+        "reviewsCount": 5,
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "DICK'S Sporting Goods",
+        "price": "$124.99",
+        "extractedPrice": 124.99,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:17593619525279856059,productid:11246981307969956183,headlineOfferDocid:5083280372309020574,imageDocid:586350825802288774,rds:PC_4879295633724823687|PROD_PC_4879295633724823687,gpcid:10131383704017648054,mid:576462567302396468,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.7,
+        "reviewsCount": 628,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "JD Sports",
+        "price": "$70.00",
+        "extractedPrice": 70,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:5832009315912538170,productid:16292030628173512851,headlineOfferDocid:6851823143936371674,imageDocid:1543675627540708172,rds:PC_5675647078988406604|PROD_PC_5675647078988406604,gpcid:5675647078988406604,mid:576462549866269379,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 5,
+        "reviewsCount": 18,
+        "delivery": "Free delivery on $75+"
+      },
+      {
+        "name": "Extra Butter",
+        "price": "$63.00",
+        "extractedPrice": 63,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:15525584676289250139,productid:12645265487647676860,headlineOfferDocid:11680878783099390941,imageDocid:10668336204269325706,rds:PC_8291389644020552852|PROD_PC_8291389644020552852,gpcid:8291389644020552852,mid:576462821593186023,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 5,
+        "reviewsCount": 1,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "DTLR",
+        "price": "$115.00",
+        "extractedPrice": 115,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:13795676039175802996,productid:9592925034042093814,headlineOfferDocid:12851894401571201053,imageDocid:6340260495928608192,gpcid:8114576438748809617,mid:576462895520828415,pvt:a&hl=en&gl=us&udm=28",
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "DICK'S Sporting Goods",
+        "price": "$124.99",
+        "extractedPrice": 124.99,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:9671208923498048389,productid:12309250974145783194,headlineOfferDocid:5826628941640627871,imageDocid:16373948033988803696,rds:PC_2358478178261267612|PROD_PC_2358478178261267612,gpcid:2897127224904229720,mid:576462912371506250,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.7,
+        "reviewsCount": 625,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "Foot Locker",
+        "price": "$57.49",
+        "extractedPrice": 57.49,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=productid:16807961844606978787,headlineOfferDocid:16807961844606978787,imageDocid:12157459552463271489,pvt:a&hl=en&gl=us&udm=28",
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "JD Sports",
+        "price": "$80.00",
+        "extractedPrice": 80,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:13335880407666429721,productid:14430628799416822430,headlineOfferDocid:8294695985002369156,imageDocid:14842737454764322970,rds:PC_2254227143989313181|PROD_PC_2254227143989313181,gpcid:2254227143989313181,mid:576462563952746934,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 5,
+        "reviewsCount": 3,
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "NUOC",
+        "price": "$41.00",
+        "extractedPrice": 41,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=productid:1649899814763251348,headlineOfferDocid:1649899814763251348,imageDocid:10811647815022223319,pvt:a&hl=en&gl=us&udm=28",
+        "delivery": "Standard shipping",
+        "isLowest": true
+      },
+      {
+        "name": "Walmart - The Spot for Fits & Kicks",
+        "price": "$100.95",
+        "extractedPrice": 100.95,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:1709906426605405563,productid:3765066895117781956,headlineOfferDocid:4460404258468866318,imageDocid:16683489263940961957,rds:PC_16608290246876448858|PROD_PC_16608290246876448858,gpcid:16608290246876448858,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.4,
+        "reviewsCount": 36,
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "Foot Locker",
+        "price": "$125.00",
+        "extractedPrice": 125,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:1230651298068103474,productid:6999887757068675832,headlineOfferDocid:2859604337182365384,imageDocid:13044082700596387065,rds:PC_13279195480625981132|PROD_PC_13279195480625981132,gpcid:13279195480625981132,mid:576462555490869581,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.7,
+        "reviewsCount": 38,
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "Finish Line",
+        "price": "$115.00",
+        "extractedPrice": 115,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:13895710744316581160,productid:9975996226774603041,headlineOfferDocid:15295070653294534833,imageDocid:342392877344338119,gpcid:5449633348470536976,pvt:a&hl=en&gl=us&udm=28",
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "SNIPES USA",
+        "price": "$125.00",
+        "extractedPrice": 125,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:8641418092369525424,productid:246515642885321958,headlineOfferDocid:854362104967513316,imageDocid:6459530925112608807,gpcid:8187116913985073668,pvt:a&hl=en&gl=us&udm=28",
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "JD Sports",
+        "price": "$115.00",
+        "extractedPrice": 115,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:12634507280028237450,productid:5886427980800967969,headlineOfferDocid:14400792432494483346,imageDocid:858312054904815126,rds:PC_12766703047223918|PROD_PC_12766703047223918,gpcid:5663280651921476208,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.7,
+        "reviewsCount": 671,
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "Champs Sports",
+        "price": "$79.99",
+        "extractedPrice": 79.99,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:12782317405979062597,productid:11336461182817037850,headlineOfferDocid:8555101233044929076,imageDocid:11705913314525993912,gpcid:16500995226120855111,mid:576462563314747293,pvt:a&hl=en&gl=us&udm=28",
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "Foot Locker",
+        "price": "$115.00",
+        "extractedPrice": 115,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=productid:13046826788018336383,headlineOfferDocid:13046826788018336383,imageDocid:16056321790036583323,rds:PC_3999046683597833511|PROD_PC_3999046683597833511,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 5,
+        "reviewsCount": 23,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "Notre",
+        "price": "$110.00",
+        "extractedPrice": 110,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:13658965943271693127,productid:2242885173912599898,headlineOfferDocid:13841219448557637543,imageDocid:7177599603275120469,gpcid:1019314456710514068,pvt:a&hl=en&gl=us&udm=28",
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "Walmart - Shoenerds",
+        "price": "$114.90",
+        "extractedPrice": 114.9,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:12189863227732659620,productid:6002722499196027360,headlineOfferDocid:12268013839662245410,imageDocid:12119978503677407013,rds:PC_1756441539070371609|PROD_PC_1756441539070371609,gpcid:409614913020342252,mid:576462567097729172,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.5,
+        "reviewsCount": 60,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "Công ty cổ phần Emi Nhật Bản",
+        "price": "$57.00",
+        "extractedPrice": 57,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:16886899744894585585,productid:17575101794462226112,headlineOfferDocid:16639115364555361826,imageDocid:2053076444489445021,gpcid:10514704455042597079,mid:576462562951943681,pvt:a&hl=en&gl=us&udm=28",
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "Foot Locker",
+        "price": "$125.00",
+        "extractedPrice": 125,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:4131468313010069647,productid:2219848400330470366,headlineOfferDocid:3428136265827281196,imageDocid:9343060077064589232,rds:PC_13141729980884167145|PROD_PC_13141729980884167145,gpcid:12119845119675115673,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.5,
+        "reviewsCount": 724,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "Nohble",
+        "price": "$110.00",
+        "extractedPrice": 110,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:6727183000277458520,productid:1299395766794126688,headlineOfferDocid:15333794906981017470,imageDocid:13592708551746219063,rds:PC_5339988808321295443|PROD_PC_5339988808321295443,gpcid:5339988808321295443,mid:576462567059891935,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.9,
+        "reviewsCount": 10,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "Editorialist",
+        "price": "$87.00",
+        "extractedPrice": 87,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=productid:4749516251086338286,headlineOfferDocid:4749516251086338286,imageDocid:152892499835679942,rds:PC_12841205828268411294|PROD_PC_12841205828268411294,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.7,
+        "reviewsCount": 9600,
+        "delivery": "Free delivery by Thu"
+      },
+      {
+        "name": "Dressinn.com",
+        "price": "$96.49",
+        "extractedPrice": 96.49,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:4645451601614638545,productid:18422439441734500678,headlineOfferDocid:9110104575703696049,imageDocid:16954979946409742663,rds:PC_15932506054379993260|PROD_PC_15932506054379993260,gpcid:7218144731063365585,mid:576462567040565994,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4,
+        "reviewsCount": 20,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "Foot Locker",
+        "price": "$125.00",
+        "extractedPrice": 125,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=productid:6113488893654982288,headlineOfferDocid:6113488893654982288,imageDocid:6661460766945991532,rds:PC_15023149258606469543|PROD_PC_15023149258606469543,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.8,
+        "reviewsCount": 1900,
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "Walmart - Solepromo",
+        "price": "$107.97",
+        "extractedPrice": 107.97,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:18079651715005992898,productid:16700311510819289002,headlineOfferDocid:6315785748165322132,imageDocid:11206551245847744559,rds:PC_4451294269967400208|PROD_PC_4451294269967400208,gpcid:4451294269967400208,mid:576462775056323213,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 5,
+        "reviewsCount": 1,
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "farfetch.com",
+        "price": "$122.00",
+        "extractedPrice": 122,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:14401658025967850905,productid:10121738650000985202,headlineOfferDocid:16985408034319608643,imageDocid:6922522504865801297,rds:PC_2684558760753005901|PROD_PC_2684558760753005901,gpcid:2684558760753005901,mid:576462833227166580,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.2,
+        "reviewsCount": 6,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "Foot Locker",
+        "price": "$125.00",
+        "extractedPrice": 125,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=productid:5802508327857118637,headlineOfferDocid:5802508327857118637,imageDocid:16113526332019281429,rds:PC_12841205828268411294|PROD_PC_12841205828268411294,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.7,
+        "reviewsCount": 9600,
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "Editorialist",
+        "price": "$123.00",
+        "extractedPrice": 123,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:14531938539979750695,productid:996261204514935013,headlineOfferDocid:7919123335091277252,imageDocid:2704702661434552594,rds:PC_10899617174025212886|PROD_PC_10899617174025212886,gpcid:10899617174025212886,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4,
+        "reviewsCount": 2,
+        "delivery": "Standard shipping"
+      },
+      {
+        "name": "Champs Sports",
+        "price": "$115.00",
+        "extractedPrice": 115,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=productid:4670958545161277324,headlineOfferDocid:4670958545161277324,imageDocid:1818772644434343131,rds:PC_12841205828268411294|PROD_PC_12841205828268411294,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.7,
+        "reviewsCount": 9600,
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "Walmart - The Spot for Fits & Kicks",
+        "price": "$85.00",
+        "extractedPrice": 85,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=catalogid:6859639111551667502,productid:1482527276248067207,headlineOfferDocid:14313121504668317159,imageDocid:13875542491181394286,rds:PC_84805069457620961|PROD_PC_84805069457620961,gpcid:11038976860765809706,mid:576462898007894658,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.7,
+        "reviewsCount": 5400,
+        "delivery": "Free delivery"
+      },
+      {
+        "name": "Foot Locker",
+        "price": "$125.00",
+        "extractedPrice": 125,
+        "link": "https://www.google.com/search?ibp=oshop&q=Nike Air Force 1 '07 Women's Shoes. Nike.com&prds=productid:4034177167210977124,headlineOfferDocid:4034177167210977124,imageDocid:1256527500884172882,rds:PC_14854745624477764359|PROD_PC_14854745624477764359,pvt:a&hl=en&gl=us&udm=28",
+        "rating": 4.7,
+        "reviewsCount": 789,
+        "delivery": "Free delivery"
+      }
+    ]
+  },
+  "webIntelligence": {
+    "consensusSummary": "Problem is they never have my size unless it's a fresh release. Also they only ever have one good looking shoe at a time. I waited a bit too ...",
+    "signals": [
+      {
+        "type": "positive",
+        "text": "High commercial availability across 40 verified merchant listings.",
+        "source": "Google Shopping Index",
+        "link": "https://www.nike.com/t/air-force-1-07-womens-shoes-PqdxJw"
+      }
+    ],
+    "discussions": [
+      {
+        "title": "YSK If your Nike sneakers are damaged you can get a new ...",
+        "source": "Reddit · r/YouShouldKnow",
+        "snippet": "Problem is they never have my size unless it's a fresh release. Also they only ever have one good looking shoe at a time. I waited a bit too ...",
+        "link": "https://www.reddit.com/r/YouShouldKnow/comments/z9898b/ysk_if_your_nike_sneakers_are_damaged_you_can_get/"
+      },
+      {
+        "title": "Why is Nike Air Force 1 quality so bad nowadays?",
+        "source": "Reddit · r/Sneakers",
+        "snippet": "I'm not a big sneaker collector or fan. I only buy a few shoes that feel comfortable and keep them until they wear out. One shoe that has always been ...",
+        "link": "https://www.reddit.com/r/Sneakers/comments/1k5686n/why_is_nike_air_force_1_quality_so_bad_nowadays/"
+      },
+      {
+        "title": "Nike court vision low vs Air Force 1, what's the differences?",
+        "source": "Reddit · r/Sneakers",
+        "snippet": "I was thinking of going with the court vision low because they are only 110$ while Air Force 1s are 160-180 They look similar and the court vision do ...",
+        "link": "https://www.reddit.com/r/Sneakers/comments/18u5uwy/nike_court_vision_low_vs_air_force_1_whats_the/"
+      }
+    ]
+  },
+  "signals": {
+    "identification": {
+      "level": "HIGH",
+      "label": "HIGH Agreement",
+      "details": "59 high-resolution visual matches confirmed via Google Lens"
+    },
+    "priceCoverage": {
+      "level": "STRONG",
+      "merchantCount": 40,
+      "lowestPrice": "$57.00",
+      "medianPrice": "$115.00",
+      "highestPrice": "$140.00",
+      "differenceFromMedian": "50.4% below median listing",
+      "priceSignal": "FAVORABLE"
+    },
+    "webEvidence": {
+      "level": "POSITIVE",
+      "discussionCount": 3,
+      "summary": "3 independent community reviews and forum teardowns analyzed",
+      "recurringPros": [
+        "Comfortable fit & ergonomics"
+      ],
+      "recurringConcerns": []
+    },
+    "demandSignal": {
+      "level": "UNAVAILABLE"
+    }
+  },
+  "decision": {
+    "verdict": "BUY",
+    "oneLinerWhy": "Best observed price ($57.00) is 50.4% below median listing with high merchant stock availability.",
+    "deterministicRationale": "Favorable pricing spread and high inventory coverage make current checkout timing optimal.",
+    "keyDrivers": [
+      "Lowest observed listing is $57.00 (50.4% below median listing)",
+      "Verified stock coverage across 40 major retailers",
+      "Positive community reception with strong core performance"
+    ]
+  }
+}

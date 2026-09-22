@@ -146,6 +146,53 @@ export default function SnapIntelAnalyzer() {
         creditsUsed={dossier?.serp.creditsUsed}
       />
 
+      {/* LOADING MODAL */}
+      <AnimatePresence>
+        {isLoading && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-zinc-50/80 backdrop-blur-md px-4"
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 10 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 10 }}
+              transition={{ type: "spring", stiffness: 300, damping: 25 }}
+              className="bg-white border border-zinc-200/80 shadow-2xl rounded-[2rem] p-8 max-w-md w-full flex flex-col items-center text-center relative overflow-hidden"
+            >
+              <div className="absolute inset-0 bg-gradient-to-b from-zinc-50/50 to-transparent pointer-events-none" />
+              <img
+                src="/loader.gif"
+                alt="Analyzing..."
+                className="w-40 h-40 object-cover mb-6 rounded-2xl shadow-sm relative z-10"
+              />
+              <h3 className="text-lg font-bold text-zinc-900 mb-2 relative z-10">
+                Synthesizing Intelligence
+              </h3>
+              <p className="text-sm font-medium text-zinc-500 h-10 flex items-center justify-center relative z-10">
+                {LOADING_STAGES[loadingStep]}
+              </p>
+              
+              <div className="w-full mt-6 bg-zinc-100 rounded-full h-1.5 overflow-hidden relative z-10">
+                <motion.div
+                  className="absolute top-0 left-0 h-full bg-zinc-900"
+                  initial={{ width: "0%" }}
+                  animate={{
+                    width: `${((loadingStep + 1) / LOADING_STAGES.length) * 100}%`,
+                  }}
+                  transition={{ ease: "easeInOut", duration: 0.5 }}
+                />
+              </div>
+              <span className="text-[10px] font-mono text-zinc-400 mt-4 uppercase tracking-widest relative z-10">
+                Phase {loadingStep + 1} of {LOADING_STAGES.length}
+              </span>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* 2. INTELLIGENCE DOSSIER & COMPARISON DISPLAY */}
       <AnimatePresence mode="wait">
         {dossier && !isLoading && (

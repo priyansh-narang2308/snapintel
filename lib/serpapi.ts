@@ -179,11 +179,7 @@ export function computeDeterministicDecision(params: {
     .filter((p): p is number => typeof p === "number" && p > 0)
     .sort((a, b) => a - b);
 
-  const lowestNum = validPrices.length > 0 ? validPrices[0] : 0;
-  const highestNum =
-    validPrices.length > 0 ? validPrices[validPrices.length - 1] : 0;
   let medianNum = 0;
-
   if (validPrices.length > 0) {
     const mid = Math.floor(validPrices.length / 2);
     medianNum =
@@ -191,6 +187,16 @@ export function computeDeterministicDecision(params: {
         ? validPrices[mid]
         : (validPrices[mid - 1] + validPrices[mid]) / 2;
   }
+
+  // Reject extreme low outliers (e.g. cases/accessories instead of the product)
+  // If a price is less than 40% of the median, it's likely a fake or accessory.
+  const cleanedPrices = validPrices.filter(
+    (p) => medianNum === 0 || p >= medianNum * 0.4
+  );
+
+  const lowestNum = cleanedPrices.length > 0 ? cleanedPrices[0] : 0;
+  const highestNum =
+    cleanedPrices.length > 0 ? cleanedPrices[cleanedPrices.length - 1] : 0;
 
   const lowestStr = lowestNum > 0 ? `$${lowestNum.toFixed(2)}` : "Unavailable";
   const medianStr = medianNum > 0 ? `$${medianNum.toFixed(2)}` : lowestStr;
