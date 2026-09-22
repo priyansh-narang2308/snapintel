@@ -38,11 +38,6 @@ export default function SnapIntelAnalyzer() {
   const [dossier, setDossier] = useState<DossierData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    handleRunAnalysis(undefined, "airpods-max", "smart");
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
   const handleRunAnalysis = async (
     customUrl?: string,
     demoKey?: string,
